@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>令和７年度 保護者会 引き継ぎ資料</title>
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:   #4A7C6F;
+      --primary-light: #6FAF9F;
+      --primary-dark:  #2E5A50;
+      --accent:    #E8A87C;
+      --accent2:   #F2C94C;
+      --bg:        #F6F9F8;
+      --surface:   #FFFFFF;
+      --border:    #D6E5DF;
+      --text:      #2D3A35;
+      --text-light:#6B857A;
+      --shadow:    0 2px 16px rgba(74,124,111,.10);
+      --radius:    12px;
+      --radius-sm: 8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP',
+                   'Yu Gothic Medium', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 60%, var(--primary-light) 100%);
+      color: #fff;
+      padding: 0;
+      position: static;
+      box-shadow: 0 2px 12px rgba(0,0,0,.18);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .header-icon {
+      font-size: 2rem;
+      background: rgba(255,255,255,.18);
+      border-radius: 50%;
+      width: 52px; height: 52px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .header-titles h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+    }
+    .header-titles p {
+      font-size: .82rem;
+      opacity: .82;
+      letter-spacing: .03em;
+    }
+    .header-badge {
+      margin-left: auto;
+      background: rgba(255,255,255,.22);
+      border: 1px solid rgba(255,255,255,.35);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: .78rem;
+      white-space: nowrap;
+    }
+
+    /* ===== NAV ===== */
+    .site-nav {
+      background: var(--surface);
+      border-bottom: 2px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 90;
+      box-shadow: var(--shadow);
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav-inner a {
+      color: var(--text-light);
+      text-decoration: none;
+      padding: 14px 18px;
+      font-size: .85rem;
+      font-weight: 600;
+      white-space: nowrap;
+      border-bottom: 3px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    .nav-inner a:hover {
+      color: var(--primary);
+      border-bottom-color: var(--primary-light);
+    }
+    .nav-inner a.active {
+      color: var(--primary-dark);
+      border-bottom-color: var(--primary);
+    }
+
+    /* ===== LAYOUT ===== */
+    .main-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    /* ===== SECTION ===== */
+    section {
+      margin-bottom: 48px;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      border-left: 5px solid var(--primary);
+      padding-left: 14px;
+      margin-bottom: 20px;
+    }
+    .section-title .icon {
+      font-size: 1.4rem;
+    }
+
+    /* ===== OVERVIEW CARDS ===== */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .ov-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 20px 18px;
+      box-shadow: var(--shadow);
+      border-top: 4px solid var(--primary);
+      text-align: center;
+      transition: transform .2s;
+    }
+    .ov-card:hover { transform: translateY(-3px); }
+    .ov-card .ov-val {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      line-height: 1.2;
+    }
+    .ov-card .ov-label {
+      font-size: .78rem;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+    .ov-card.accent { border-top-color: var(--accent); }
+    .ov-card.accent .ov-val { color: #B05E2A; }
+    .ov-card.yellow { border-top-color: var(--accent2); }
+    .ov-card.yellow .ov-val { color: #8A6800; }
+
+    /* ===== ALERT / NOTE BOX ===== */
+    .info-box {
+      background: #EEF8F4;
+      border-left: 4px solid var(--primary);
+      border-radius: var(--radius-sm);
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      font-size: .9rem;
+    }
+    .info-box.warn {
+      background: #FFF8EC;
+      border-left-color: var(--accent);
+    }
+    .info-box.tip {
+      background: #FFF3CD;
+      border-left-color: var(--accent2);
+    }
+    .info-box strong { color: var(--primary-dark); }
+    .info-box.warn strong { color: #8A4500; }
+
+    /* ===== TIMELINE ===== */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--primary-light), var(--border));
+      border-radius: 2px;
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -22px; top: 16px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid var(--surface);
+      box-shadow: 0 0 0 2px var(--primary-light);
+    }
+    .tl-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .tl-header {
+      background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: #fff;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .tl-month {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: .05em;
+    }
+    .tl-month-en {
+      font-size: .78rem;
+      opacity: .8;
+      font-weight: 400;
+    }
+    .tl-body {
+      padding: 16px 20px;
+    }
+    .tl-event {
+      display: flex;
+      gap: 10px;
+      padding: 7px 0;
+      border-bottom: 1px dashed var(--border);
+      font-size: .88rem;
+      align-items: flex-start;
+    }
+    .tl-event:last-child { border-bottom: none; }
+    .tl-date-tag {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 6px;
+      padding: 2px 8px;
+      font-size: .75rem;
+      font-weight: 700;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .tl-date-tag.orange { background: var(--accent); color: #fff; }
+    .tl-date-tag.yellow { background: #D4A017; color: #fff; }
+    .tl-date-tag.gray   { background: #8BA89E; color: #fff; }
+    .tl-text { flex: 1; }
+    .tl-badge {
+      display: inline-block;
+      font-size: .7rem;
+      padding: 1px 7px;
+      border-radius: 10px;
+      font-weight: 600;
+      margin-left: 4px;
+      vertical-align: middle;
+    }
+    .badge-basar  { background: #FDE8D0; color: #8A4500; }
+    .badge-fes    { background: #D0EDE6; color: #1B5E4E; }
+    .badge-meet   { background: #E8E4FF; color: #3A2FA0; }
+    .badge-money  { background: #FFF5CC; color: #7A6000; }
+    .badge-import { background: #FFE0E0; color: #900; }
+
+    /* ===== ROLES TABLE ===== */
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+    .role-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .role-header {
+      padding: 14px 16px;
+      color: #fff;
+      font-weight: 700;
+      font-size: .95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .role-header.kaicho  { background: linear-gradient(90deg,#2E5A50,#4A7C6F); }
+    .role-header.fuku    { background: linear-gradient(90deg,#5A6A28,#8A9A40); }
+    .role-header.kaikei  { background: linear-gradient(90deg,#7A4A1E,#B07030); }
+    .role-header.kansa   { background: linear-gradient(90deg,#3A4A7A,#5A6AAA); }
+    .role-body {
+      padding: 14px 16px;
+    }
+    .role-body ul {
+      list-style: none;
+    }
+    .role-body ul li {
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: .84rem;
+      display: flex;
+      gap: 7px;
+    }
+    .role-body ul li:last-child { border-bottom: none; }
+    .role-body ul li::before {
+      content: '▸';
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    /* ===== FINANCE TABLE ===== */
+    .fin-table-wrap {
+      overflow-x: auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .fin-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+    }
+    .fin-table th {
+      background: var(--primary);
+      color: #fff;
+      padding: 11px 16px;
+      font-size: .85rem;
+      text-align: left;
+    }
+    .fin-table td {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: .87rem;
+    }
+    .fin-table tr:last-child td { border-bottom: none; }
+    .fin-table tr:nth-child(even) td { background: #F2F8F5; }
+    .fin-table .num { text-align: right; font-variant-numeric: tabular-nums; }
+    .fin-table .total td {
+      background: #E8F4EF !important;
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    /* ===== CHECKLIST ===== */
+    .checklist {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 10px;
+    }
+    .checklist li {
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow);
+      padding: 12px 16px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: .87rem;
+    }
+    .checklist li .chk {
+      width: 22px; height: 22px;
+      border: 2px solid var(--primary);
+      border-radius: 5px;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .checklist li .chk.done {
+      background: var(--primary);
+      color: #fff;
+      font-size: .85rem;
+    }
+
+    /* ===== USB CONTENTS ===== */
+    .usb-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .usb-card {
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow);
+      padding: 14px 16px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .usb-card .usb-icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .usb-card .usb-name {
+      font-size: .84rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+    }
+    .usb-card .usb-note {
+      font-size: .76rem;
+      color: var(--text-light);
+      margin-top: 3px;
+    }
+
+    /* ===== IMPORTANT POINTS ===== */
+    .points-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .points-list li {
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow);
+      padding: 14px 18px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: .88rem;
+    }
+    .points-list li .pt-num {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 50%;
+      width: 26px; height: 26px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--primary-dark);
+      color: rgba(255,255,255,.7);
+      text-align: center;
+      padding: 20px;
+      font-size: .8rem;
+    }
+
+    /* ===== PRINT BAR ===== */
+    .print-bar {
+      background: linear-gradient(90deg, #1a3a30 0%, #2E5A50 100%);
+      color: #fff;
+      padding: 0;
+      position: static;
+      box-shadow: 0 2px 8px rgba(0,0,0,.25);
+      transition: opacity .3s, max-height .3s;
+      overflow: hidden;
+      max-height: 120px;
+      opacity: 1;
+    }
+    .print-bar.hidden {
+      max-height: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .print-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .print-bar-inner span {
+      font-size: .78rem;
+      opacity: .75;
+      margin-right: auto;
+    }
+    .btn-print {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      color: var(--primary-dark);
+      border: none;
+      border-radius: 8px;
+      padding: 7px 14px;
+      font-size: .82rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,.15);
+      transition: background .2s, transform .15s;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .btn-print:hover {
+      background: #e8f4ef;
+      transform: translateY(-1px);
+    }
+    .btn-print .btn-icon { font-size: 1.1rem; }
+    .btn-print-outline {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,.5);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: .78rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: background .2s;
+      white-space: nowrap;
+    }
+    .btn-print-outline:hover { background: rgba(255,255,255,.12); }
+
+    /* ===== PRINT ===== */
+    @media print {
+      .print-bar, .site-nav, #scrollTop { display: none !important; }
+      .site-header { position: static !important; box-shadow: none; }
+      body { background: #fff; font-size: 12px; }
+      .main-wrap { padding: 16px 12px; }
+      .tl-card, .role-card, .usb-card, .checklist li, .points-list li { break-inside: avoid; }
+      .tl-item { break-inside: avoid; }
+      section { break-before: auto; }
+      .overview-grid { grid-template-columns: repeat(3, 1fr); }
+      .roles-grid { grid-template-columns: repeat(3, 1fr); }
+      .ov-card:hover { transform: none; }
+      .fin-table-wrap { box-shadow: none; border: 1px solid #ccc; }
+      a { color: inherit; text-decoration: none; }
+      footer { background: #f0f0f0; color: #555; }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .header-badge { display: none; }
+      .header-inner { padding: 14px 14px; gap: 10px; }
+      .header-icon { width: 40px; height: 40px; font-size: 1.4rem; }
+      .header-titles h1 { font-size: 1rem; }
+      .section-title { font-size: 1.05rem; }
+      .overview-grid { grid-template-columns: 1fr 1fr; }
+      .print-bar-inner span { display: none; }
+      .print-bar-inner { justify-content: flex-end; padding: 6px 12px; }
+    }
+
+    /* ===== SCROLL TOP BTN ===== */
+    #scrollTop {
+      position: fixed;
+      bottom: 28px; right: 24px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 44px; height: 44px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0,0,0,.2);
+      opacity: 0;
+      transition: opacity .3s;
+      z-index: 200;
+    }
+    #scrollTop.show { opacity: 1; }
+
+    /* ===== TABS ===== */
+    .tab-bar {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      padding: 7px 14px;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      color: var(--text-light);
+      font-size: .82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .tab-btn:hover, .tab-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(135deg, #E8F4EF 0%, #F6F9F8 50%, #FFF8EC 100%);
+      border-radius: var(--radius);
+      padding: 28px 28px 22px;
+      margin-bottom: 36px;
+      border: 1px solid var(--border);
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .hero-text h2 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+    }
+    .hero-text p {
+      font-size: .88rem;
+      color: var(--text-light);
+      max-width: 540px;
+    }
+    .hero-meta {
+      margin-left: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      font-size: .83rem;
+    }
+    .hero-meta span {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 12px;
+      color: var(--text);
+    }
+    .hero-meta span strong { color: var(--primary-dark); }
+  </style>
+</head>
+<body>
+
+<!-- PRINT BAR -->
+<div class="print-bar" id="printBar">
+  <div class="print-bar-inner">
+    <span>🖨 このページを印刷 / PDF保存できます</span>
+    <button class="btn-print-outline" onclick="togglePrintGuide()" id="guideBtn">📋 印刷の手順</button>
+    <button class="btn-print" onclick="printPage()">
+      <span class="btn-icon">🖨</span> 印刷 / PDF保存
+    </button>
+  </div>
+</div>
+
+<!-- 印刷ガイド -->
+<div id="printGuide" style="display:none; background:#fffbea; border-bottom:2px solid #f2c94c; padding:12px 20px; font-size:.85rem;">
+  <div style="max-width:1100px; margin:0 auto;">
+    <strong>📋 PDF保存の手順：</strong>
+    ① 「印刷 / PDF保存」ボタンをクリック　→
+    ② 印刷ダイアログで <strong>「送信先」を「PDFに保存」</strong> に変更　→
+    ③ <strong>「保存」</strong>をクリック
+    　｜　<em>用紙サイズ：A4、倍率：自動縮小 推奨</em>
+    <button onclick="togglePrintGuide()" style="margin-left:16px; background:none; border:none; cursor:pointer; font-size:.85rem; color:#555;">✕ 閉じる</button>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-icon">🌸</div>
+    <div class="header-titles">
+      <h1>令和７年度 保護者会 引き継ぎ資料</h1>
+      <p>こども園 保護者会 ― 次年度役員の皆様へ</p>
+    </div>
+    <div class="header-badge">📅 令和７年度版</div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="#overview">概要</a>
+    <a href="#roles">役員の役割</a>
+    <a href="#calendar">月別活動</a>
+    <a href="#finance">会計まとめ</a>
+    <a href="#basar">バザー・フェス</a>
+    <a href="#hikitsugi">引き継ぎ事項</a>
+    <a href="#points">次年度へのメモ</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-text">
+      <h2>🌿 次年度役員の皆様、よろしくお願いします！</h2>
+      <p>
+        このページは令和７年度の保護者会活動を記録した引き継ぎ資料です。
+        月別の活動内容・役員の役割・会計情報・引き継ぎチェックリストを
+        まとめています。ご不明な点は前年度役員までご連絡ください。
+      </p>
+    </div>
+    <div class="hero-meta">
+      <span>📆 対象年度：<strong>令和７年度（2025年）</strong></span>
+      <span>👥 役員構成：<strong>会長・副会長・会計・監査</strong></span>
+      <span>💌 連絡手段：<strong>LINEグループ・ルクミー</strong></span>
+    </div>
+  </div>
+
+  <!-- ===== 概要 ===== -->
+  <section id="overview">
+    <h2 class="section-title"><span class="icon">📊</span>年間活動 概要</h2>
+    <div class="overview-grid">
+      <div class="ov-card">
+        <div class="ov-val">２回</div>
+        <div class="ov-label">🛍 バザー開催回数</div>
+      </div>
+      <div class="ov-card accent">
+        <div class="ov-val">12,894円</div>
+        <div class="ov-label">💰 バザー総収入</div>
+      </div>
+      <div class="ov-card yellow">
+        <div class="ov-val">13名</div>
+        <div class="ov-label">🎓 卒園児（アルバム）</div>
+      </div>
+      <div class="ov-card">
+        <div class="ov-val">1回</div>
+        <div class="ov-label">🎉 フェス開催（8月）</div>
+      </div>
+      <div class="ov-card accent">
+        <div class="ov-val">7,800円</div>
+        <div class="ov-label">📸 アルバム助成金総額</div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <strong>📌 会費について：</strong>
+      前年度からの引き継ぎで会費値上げが検討されましたが、
+      <strong>使途の見直し・収入増加により会費は現状維持</strong>と判断しました。会費の使途内訳をフェス費用と記念品費用で500円ずつとしたことで、
+      入園時期によって金額が異なります（フェス前：1,000円／フェス後：500円）。
+    </div>
+  </section>
+
+  <!-- ===== 役員の役割 ===== -->
+  <section id="roles">
+    <h2 class="section-title"><span class="icon">👥</span>役員の役割</h2>
+    <div class="roles-grid">
+      <div class="role-card">
+        <div class="role-header kaicho">👑 会長</div>
+        <div class="role-body">
+          <ul>
+            <li>全体の統括・取りまとめ</li>
+            <li>次期委員選出のアンケート案内</li>
+            <li>卒園式での挨拶（3月20日）</li>
+            <li>LINEグループでの情報共有・相談</li>
+          </ul>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-header fuku">🤝 副会長</div>
+        <div class="role-body">
+          <ul>
+            <li>給食センター運営委員会 出席（5月28日、14時〜1時間）</li>
+            <li>あつまっこ会議 出席（6月11日・10月14日・3月4日、15:30〜1時間）</li>
+            <li>総会・進級説明会の司会（2月26日）</li>
+            <li>フェス運営への参加・役割分担</li>
+            <li>各種連絡・調整業務の補助</li>
+          </ul>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-header kaikei">💰 会計</div>
+        <div class="role-body">
+          <ul>
+            <li>会費集金案内の作成・集金管理</li>
+            <li>バザー集金箱の確認（毎日）</li>
+            <li>サポート券の回収・集計・小切手入金（3月6日）</li>
+            <li>決算書・翌年度予算案の作成（1月21日）</li>
+            <li>業者（記念品・アルバム等）への支払い管理</li>
+            <li>会計バッグ（印鑑・通帳）の管理・引き継ぎ</li>
+            <li>助成金を園へ渡す（2月10日）</li>
+          </ul>
+        </div>
+      </div>
+      <div class="role-card">
+        <div class="role-header kansa">🔍 監査</div>
+        <div class="role-body">
+          <ul>
+            <li>決算書・予算案の監査（2月16日）</li>
+            <li>帳簿・領収書の確認</li>
+            <li>監査報告書の作成（総会用）</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 月別活動 ===== -->
+  <section id="calendar">
+    <h2 class="section-title"><span class="icon">🗓</span>月別 活動内容詳細</h2>
+
+    <div class="timeline">
+
+      <!-- 4月 -->
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-header">
+            <span class="tl-month">４月</span>
+            <span class="tl-month-en">April</span>
+          </div>
+          <div class="tl-body">
+            <div class="tl-event">
+              <span class="tl-date-tag">3日</span>
+              <span class="tl-text">役員顔合わせ・前年度引継ぎ（こども園にて）<span class="tl-badge badge-meet">会議</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag gray">検討</span>
+              <span class="tl-text">前年度引継ぎより<strong>会費値上げを検討</strong> → 使途見直し・収入増加で<strong>現状維持</strong>と判断</span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag orange">方針</span>
+              <span class="tl-text">バザー：フェスと別日開催・複数回・<strong>無人販売方式</strong>で役員負担軽減<span class="tl-badge badge-basar">バザー</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5月 -->
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-header">
+            <span class="tl-month">５月</span>
+            <span class="tl-month-en">May</span>
+          </div>
+          <div class="tl-body">
+            <div class="tl-event">
+              <span class="tl-date-tag gray">上旬</span>
+              <span class="tl-text">LINEにて相談・フェス内容の大まかな決定、役割分担・順次買い出し開始<span class="tl-badge badge-fes">フェス</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">15日</span>
+              <span class="tl-text">会費集金案内文書作成・ルクミー配信＋掲示<span class="tl-badge badge-money">会計</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">22日</span>
+              <span class="tl-text">バザー用不用品回収 → 案内作成（ルクミー＋掲示）、回収箱用意（段ボール：ローソン提供）、寄付品は随時回収し多目的室で保管<span class="tl-badge badge-basar">バザー</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">28日</span>
+              <span class="tl-text">副会長：給食センター運営委員会 出席（14時〜約1時間）<span class="tl-badge badge-meet">会議</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">29〜30日</span>
+              <span class="tl-text">会費集金日<span class="tl-badge badge-money">会計</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6月 -->
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-header">
+            <span class="tl-month">６月</span>
+            <span class="tl-month-en">June</span>
+          </div>
+          <div class="tl-body">
+            <div class="tl-event">
+              <span class="tl-date-tag gray">上旬</span>
+              <span class="tl-text">フェス当日の流れ・配置・ボランティア依頼内容・予算内必要品購入を決定<span class="tl-badge badge-fes">フェス</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">11日</span>
+              <span class="tl-text">副会長：あつまっこ会議 出席（15時半〜約1時間）<span class="tl-badge badge-meet">会議</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">19日</span>
+              <span class="tl-text">フェス開催案内・回収品依頼・参加兄弟児の集金について ルクミー配信＋掲示<span class="tl-badge badge-fes">フェス</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag gray">下旬</span>
+              <span class="tl-text">各自連絡・事前準備。景品を<strong>札幌の卸売業者「ぽこぺん」</strong>へ発注（実物確認に訪問後、LINEで相談し28日に現地購入）<span class="tl-badge badge-fes">フェス</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag gray">随時</span>
+              <span class="tl-text">サポート券回収（会計担当）<span class="tl-badge badge-money">会計</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag gray">随時</span>
+              <span class="tl-text">新入園児：保護者会費集金（フェス前のため <strong>1,000円/人</strong>）<span class="tl-badge badge-money">会計</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7月 -->
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-header">
+            <span class="tl-month">７月</span>
+            <span class="tl-month-en">July</span>
+          </div>
+          <div class="tl-body">
+            <div class="tl-event">
+              <span class="tl-date-tag">3日</span>
+              <span class="tl-text">ルクミーにてバザー開催案内配信<span class="tl-badge badge-basar">バザー</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag orange">4〜10日</span>
+              <span class="tl-text"><strong>第１回バザー開催</strong>（設置・回収各3名、会計が毎日集金箱確認） → <strong>収入：2,400円</strong><span class="tl-badge badge-basar">バザー</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">10日</span>
+              <span class="tl-text">ルクミーアンケート機能でフェスボランティア募集・参加兄弟児の集計<span class="tl-badge badge-fes">フェス</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">16日</span>
+              <span class="tl-text">ルクミーにて兄弟児集金案内（<strong>200円/人</strong>、12名参加）<span class="tl-badge badge-money">会計</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">29日</span>
+              <span class="tl-text">フェス最終案内 ルクミー配信<span class="tl-badge badge-fes">フェス</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8月 -->
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-header" style="background: linear-gradient(90deg,#B07030,#E8A87C);">
+            <span class="tl-month">８月</span>
+            <span class="tl-month-en">August 🎉 フェス月</span>
+          </div>
+          <div class="tl-body">
+            <div class="tl-event">
+              <span class="tl-date-tag orange">6日</span>
+              <span class="tl-text">フェス最終案内 ルクミー配信<span class="tl-badge badge-fes">フェス</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag orange">7日</span>
+              <span class="tl-text"><strong>🎉 みやのもりフェス 当日</strong>（準備は多目的室で13時より、会場へは15時以降 設置・運営、15:30開始　18:00撒収→ 18:30完全退園）<span class="tl-badge badge-fes">フェス</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">8日</span>
+              <span class="tl-text">フェス開催のお礼・欠席者向け案内 ルクミー配信<span class="tl-badge badge-fes">フェス</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9月 -->
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-header">
+            <span class="tl-month">９月</span>
+            <span class="tl-month-en">September</span>
+          </div>
+          <div class="tl-body">
+            <div class="tl-event">
+              <span class="tl-date-tag gray">随時</span>
+              <span class="tl-text">新入園児：保護者会費集金（<strong>500円/人</strong>）<span class="tl-badge badge-money">会計</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag gray">検討</span>
+              <span class="tl-text">神社祭・盆踊りへの出店を検討 → 在庫リスク等の懸念から<strong>断念</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10月 -->
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-header">
+            <span class="tl-month">10月</span>
+            <span class="tl-month-en">October</span>
+          </div>
+          <div class="tl-body">
+            <div class="tl-event">
+              <span class="tl-date-tag gray">初旬</span>
+              <span class="tl-text">卒園アルバム購入確認（<strong>13名全員希望</strong>、助成金・支出計：14,300円予定）<span class="tl-badge badge-money">会計</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">7日</span>
+              <span class="tl-text">バザー不用品回収案内 ルクミー＋掲示<span class="tl-badge badge-basar">バザー</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">14日</span>
+              <span class="tl-text">副会長：あつまっこ会議 出席<span class="tl-badge badge-meet">会議</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">30日</span>
+              <span class="tl-text">第２回バザー開催案内<span class="tl-badge badge-basar">バザー</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag orange">30日〜</span>
+              <span class="tl-text"><strong>第２回バザー開始</strong>（11月14日まで）<span class="tl-badge badge-basar">バザー</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag gray">随時</span>
+              <span class="tl-text">新入園児：保護者会費集金（<strong>500円/人</strong>）<span class="tl-badge badge-money">会計</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11月 -->
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-header">
+            <span class="tl-month">11月</span>
+            <span class="tl-month-en">November</span>
+          </div>
+          <div class="tl-body">
+            <div class="tl-event">
+              <span class="tl-date-tag orange">〜14日</span>
+              <span class="tl-text"><strong>第２回バザー開催</strong> → <strong>収入：10,494円</strong>（売上＋買取合計）<span class="tl-badge badge-basar">バザー</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag gray">随時</span>
+              <span class="tl-text">サポート券回収<span class="tl-badge badge-money">会計</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag gray">随時</span>
+              <span class="tl-text">新入園児：保護者会費集金（<strong>500円/人</strong>）<span class="tl-badge badge-money">会計</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 12月 -->
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-header">
+            <span class="tl-month">12月</span>
+            <span class="tl-month-en">December</span>
+          </div>
+          <div class="tl-body">
+            <div class="tl-event">
+              <span class="tl-date-tag gray">随時</span>
+              <span class="tl-text">園と修了記念品（三輪車・絵本など）の相談・予算検討</span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag gray">随時</span>
+              <span class="tl-text">新入園児：保護者会費集金（<strong>500円/人</strong>）<span class="tl-badge badge-money">会計</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1月 -->
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-header" style="background: linear-gradient(90deg,#3A4A7A,#5A7AAA);">
+            <span class="tl-month">１月</span>
+            <span class="tl-month-en">January 📋 決算準備月</span>
+          </div>
+          <div class="tl-body">
+            <div class="tl-event">
+              <span class="tl-date-tag">17日</span>
+              <span class="tl-text">サポート券回収<span class="tl-badge badge-money">会計</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">21日</span>
+              <span class="tl-text">決算・予算案作成<span class="tl-badge badge-money">会計</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">22日</span>
+              <span class="tl-text">園長と記念品・総会日程について合意</span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">22日</span>
+              <span class="tl-text">次期委員選出のアンケート案内 配布<span class="tl-badge badge-import">重要</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag orange">31日</span>
+              <span class="tl-text"><strong>次年度役員選出</strong>（立候補者15名）・こぐまクラブと保護者会の二役で相談<span class="tl-badge badge-import">重要</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2月 -->
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-header" style="background: linear-gradient(90deg,#5A6A28,#8A9A40);">
+            <span class="tl-month">２月</span>
+            <span class="tl-month-en">February 📝 総会・引き継ぎ月</span>
+          </div>
+          <div class="tl-body">
+            <div class="tl-event">
+              <span class="tl-date-tag">1日</span>
+              <span class="tl-text">次年度役員候補者へ連絡</span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">10日</span>
+              <span class="tl-text">記念品費・アルバム助成金を園へ渡す（助成金：<strong>600円×13名=7,800円</strong>）<span class="tl-badge badge-money">会計</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag orange">16日</span>
+              <span class="tl-text"><strong>監査</strong>（決算書・予算案）<span class="tl-badge badge-import">重要</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">19日</span>
+              <span class="tl-text">決算書等 提出<span class="tl-badge badge-money">会計</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag orange">26日</span>
+              <span class="tl-text"><strong>総会・進級説明会</strong>（副会長が司会、会計・監査が報告、記念品贈呈）<span class="tl-badge badge-import">重要</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">28日</span>
+              <span class="tl-text">園が業者へ支払ったあと領収書を受け取る<span class="tl-badge badge-money">会計</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3月 -->
+      <div class="tl-item">
+        <div class="tl-card">
+          <div class="tl-header" style="background: linear-gradient(90deg,#7A3A60,#AA6A90);">
+            <span class="tl-month">３月</span>
+            <span class="tl-month-en">March 🌸 年度末</span>
+          </div>
+          <div class="tl-body">
+            <div class="tl-event">
+              <span class="tl-date-tag">4日</span>
+              <span class="tl-text">副会長：あつまっこ会議 出席<span class="tl-badge badge-meet">会議</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">6日</span>
+              <span class="tl-text">商工会からサポート券の小切手受取・入金<span class="tl-badge badge-money">会計</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag orange">11日</span>
+              <span class="tl-text"><strong>次年度委員への引き継ぎ</strong>（USB・会計バッグ・印鑑・通帳 等）<span class="tl-badge badge-import">重要</span></span>
+            </div>
+            <div class="tl-event">
+              <span class="tl-date-tag">20日</span>
+              <span class="tl-text"><strong>卒園式</strong>：会長が挨拶</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /timeline -->
+  </section>
+
+  <!-- ===== 会計まとめ ===== -->
+  <section id="finance">
+    <h2 class="section-title"><span class="icon">💴</span>会計まとめ</h2>
+
+    <div class="info-box tip">
+      <strong>📋 会費の仕組み：</strong>
+      フェス（8月）前に入園 → <strong>1,000円/人</strong>　／　フェス後に入園 → <strong>500円/人</strong>
+    </div>
+
+    <div class="fin-table-wrap" style="margin-bottom:16px;">
+      <table class="fin-table">
+        <thead>
+          <tr>
+            <th>項目</th>
+            <th>内容・条件</th>
+            <th class="num">金額</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>会費（フェス前入園）</td>
+            <td>1,000円 × 入園者数</td>
+            <td class="num">1,000円/人</td>
+          </tr>
+          <tr>
+            <td>会費（フェス後入園）</td>
+            <td>500円 × 入園者数（9〜3月）</td>
+            <td class="num">500円/人</td>
+          </tr>
+          <tr>
+            <td>フェス参加兄弟児</td>
+            <td>200円/人（12名参加）</td>
+            <td class="num">2,400円</td>
+          </tr>
+          <tr>
+            <td>バザー収入（第1回）</td>
+            <td>7月4〜10日</td>
+            <td class="num">2,400円</td>
+          </tr>
+          <tr>
+            <td>バザー収入（第2回）</td>
+            <td>10月30日〜11月14日</td>
+            <td class="num">10,494円</td>
+          </tr>
+          <tr class="total">
+            <td colspan="2">バザー収入 合計</td>
+            <td class="num">12,894円</td>
+          </tr>
+          <tr>
+            <td>卒園アルバム助成金</td>
+            <td>600円 × 13名</td>
+            <td class="num">7,800円</td>
+          </tr>
+          <tr>
+            <td>卒園アルバム関連支出</td>
+            <td>助成金＋会費500円分×13名</td>
+            <td class="num">14,300円</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box">
+      <strong>📌 サポート券について：</strong>
+      サポート券は会計が管理し、年度内で適宜回収して商工会議所へ持参してください。
+      町内回収のものは年度末（今年度は3月6日）に商工会議所より小切手として受け取り入金しました。
+    </div>
+  </section>
+
+  <!-- ===== バザー・フェス ===== -->
+  <section id="basar">
+    <h2 class="section-title"><span class="icon">🎪</span>バザー・フェス 運営詳細</h2>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+
+      <div>
+        <h3 style="color:var(--primary-dark);margin-bottom:12px;font-size:1rem;display:flex;align-items:center;gap:7px;">
+          🛍 バザー 運営ポイント
+        </h3>
+        <div class="info-box">
+          <strong>方式：</strong>無人販売方式（役員負担を軽減するため）
+        </div>
+        <div class="fin-table-wrap">
+          <table class="fin-table">
+            <thead><tr><th>項目</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>不用品回収</td><td>回収箱用意（段ボール：ローソン提供）、随時回収し多目的室で保管</td></tr>
+              <tr><td>設置・回収</td><td>各3名で対応</td></tr>
+              <tr><td>集金確認</td><td>会計が毎日集金箱をチェック</td></tr>
+              <tr><td>案内方法</td><td>ルクミー配信＋掲示</td></tr>
+              <tr><td>開催時期</td><td>フェスと<strong>別日</strong>で年2回（7月・10〜11月）</td></tr>
+              <tr><td>第1回収入</td><td>2,400円</td></tr>
+              <tr><td>第2回収入</td><td>10,494円</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="color:var(--primary-dark);margin-bottom:12px;font-size:1rem;display:flex;align-items:center;gap:7px;">
+          🎉 みやのもりフェス 運営ポイント
+        </h3>
+        <div class="info-box">
+          <strong>開催日：</strong>8月7日（準備は多目的室で<strong>13時より開始</strong>、会場へは<strong>15時以降</strong> 設置・運営、15:30開始　18:00撒収 → 18:30完全退園）
+        </div>
+        <div class="fin-table-wrap">
+          <table class="fin-table">
+            <thead><tr><th>項目</th><th>内容</th></tr></thead>
+            <tbody>
+              <tr><td>景品仕入れ先</td><td>札幌の卸売業者 <strong>「ぽこぺん」</strong>（実物確認後LINE相談→6月28日現地購入）</td></tr>
+              <tr><td>ボランティア募集</td><td>ルクミーアンケート機能を使用（7月10日）</td></tr>
+              <tr><td>兄弟児参加費</td><td>200円/人（12名参加）</td></tr>
+              <tr><td>案内配信</td><td>6月19日・7月29日・8月6日（ルクミー）</td></tr>
+              <tr><td>翌日対応</td><td>8月8日：お礼配信・欠席者向け案内</td></tr>
+              <tr><td>準備開始</td><td>5月〜役割分担・買い出し・内容詰め</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 引き継ぎ事項 ===== -->
+  <section id="hikitsugi">
+    <h2 class="section-title"><span class="icon">📦</span>引き継ぎ事項・チェックリスト</h2>
+
+    <div class="info-box warn" style="margin-bottom:20px;">
+      <strong>⚠ 引き継ぎ日：</strong> ３月11日（次年度委員への引き継ぎ）
+      ・ USB ・ 会計バッグ（印鑑・通帳） などを直接手渡しで引き継ぎます。
+    </div>
+
+    <h3 style="color:var(--primary-dark);font-size:.95rem;margin-bottom:12px;">🗂 USB 収録内容</h3>
+    <div class="usb-grid" style="margin-bottom:24px;">
+      <div class="usb-card">
+        <span class="usb-icon">📄</span>
+        <div>
+          <div class="usb-name">保護者会案内</div>
+          <div class="usb-note">PDF・編集用データ</div>
+        </div>
+      </div>
+      <div class="usb-card">
+        <span class="usb-icon">🎉</span>
+        <div>
+          <div class="usb-name">フェス詳細資料</div>
+          <div class="usb-note">当日の流れ・配置図</div>
+        </div>
+      </div>
+      <div class="usb-card">
+        <span class="usb-icon">💰</span>
+        <div>
+          <div class="usb-name">予算・決算関係資料</div>
+          <div class="usb-note">決算書・予算案</div>
+        </div>
+      </div>
+      <div class="usb-card">
+        <span class="usb-icon">🛍</span>
+        <div>
+          <div class="usb-name">バザー掲示物原版</div>
+          <div class="usb-note">次年度流用可能なデータ</div>
+        </div>
+      </div>
+      <div class="usb-card">
+        <span class="usb-icon">🎤</span>
+        <div>
+          <div class="usb-name">総会 司会原稿</div>
+          <div class="usb-note">副会長が使用する原稿</div>
+        </div>
+      </div>
+      <div class="usb-card">
+        <span class="usb-icon">📋</span>
+        <div>
+          <div class="usb-name">各種連絡文書</div>
+          <div class="usb-note">ルクミー配信文・掲示物など</div>
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
+  <!-- ===== 次年度へのメモ ===== -->
+  <section id="points">
+    <h2 class="section-title"><span class="icon">💡</span>次年度役員へのメモ・申し送り事項</h2>
+    <ul class="points-list">
+      <li>
+        <span class="pt-num">1</span>
+        <span><strong>バザーについて：</strong> 無人販売方式で役員の負担が軽減できます。段ボール回収箱はローソンから提供していただけました。</span>
+      </li>
+      <li>
+        <span class="pt-num">2</span>
+        <span><strong>フェス景品の仕入れ：</strong> 札幌の卸売業者<strong>「ぽこぺん」</strong>を利用。発注はLINEで相談しながら進めました。</span>
+      </li>
+      <li>
+        <span class="pt-num">3</span>
+        <span><strong>夏祭り出店について：</strong> 神社祭・盆踊りへの出店を検討しましたが、在庫リスク等の懸念から今年度は断念しました。</span>
+      </li>
+      <li>
+        <span class="pt-num">4</span>
+        <span><strong>連絡ツール：</strong> 役員間は<strong>LINEグループ</strong>、保護者全体への連絡は<strong>ルクミー</strong>（配信＋アンケート機能）を使用しています。</span>
+      </li>
+      <li>
+        <span class="pt-num">5</span>
+        <span><strong>外部会議：</strong> 副会長が「給食センター運営委員会」（年1回・今年度は5月末、来年度日程は未定）と「あつまっこ会議」（年3回・来年度は5月/11月/3月予定）に出席します。</span>
+      </li>
+      <li>
+        <span class="pt-num">6</span>
+        <span><strong>次期役員選出：</strong> 1月下旬にアンケートを作成・配布し園事務室の協力で回収。集計後に立候補者の情報を保護者会とこぐまクラブ各役員へ共有し、31日に代表者で選出会議を開きました。</span>
+      </li>
+      <li>
+        <span class="pt-num">7</span>
+        <span><strong>卒園アルバム助成金：</strong> 1人あたり600円の助成に変更しました。</span>
+      </li>
+    </ul>
+  </section>
+
+</div><!-- /main-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  令和７年度 保護者会 引き継ぎ資料 ― 作成：令和７年度 役員一同
+</footer>
+
+<!-- SCROLL TOP BTN -->
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">▲</button>
+
+<script>
+  // チェックボックス
+  function toggleCheck(el) {
+    el.classList.toggle('done');
+    el.textContent = el.classList.contains('done') ? '✓' : '';
+    // ローカルストレージに保存
+    saveChecks();
+  }
+
+  function saveChecks() {
+    const checks = document.querySelectorAll('.chk');
+    const state = Array.from(checks).map(c => c.classList.contains('done'));
+    localStorage.setItem('hikitsugi_checks', JSON.stringify(state));
+  }
+
+  function loadChecks() {
+    const saved = localStorage.getItem('hikitsugi_checks');
+    if (!saved) return;
+    const state = JSON.parse(saved);
+    const checks = document.querySelectorAll('.chk');
+    checks.forEach((c, i) => {
+      if (state[i]) {
+        c.classList.add('done');
+        c.textContent = '✓';
+      }
+    });
+  }
+
+  loadChecks();
+
+  // 印刷
+  function printPage() {
+    window.print();
+  }
+
+  // 印刷ガイド
+  function togglePrintGuide() {
+    const g = document.getElementById('printGuide');
+    const btn = document.getElementById('guideBtn');
+    const show = g.style.display === 'none';
+    g.style.display = show ? 'block' : 'none';
+    btn.style.background = show ? 'rgba(255,255,255,.18)' : '';
+  }
+
+  // スクロールで印刷バーの表示切替（トップ付近のみ表示）
+  const printBar = document.getElementById('printBar');
+  const printGuide = document.getElementById('printGuide');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      printBar.classList.add('hidden');
+      if (printGuide.style.display !== 'none') {
+        printGuide.style.display = 'none';
+      }
+    } else {
+      printBar.classList.remove('hidden');
+    }
+  });
+
+  // スクロールトップボタン
+  const btn = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('show', window.scrollY > 300);
+  });
+
+  // ナビのアクティブ状態
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-inner a');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.nav-inner a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
